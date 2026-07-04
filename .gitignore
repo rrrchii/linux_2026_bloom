@@ -1,0 +1,36 @@
+# Build artifacts — LKM
+*.o
+*.ko
+*.mod
+*.mod.c
+*.mod.o
+Module.symvers
+modules.order
+.*.cmd
+..*.cmd
+
+# Build artifacts — eBPF / userspace
+*.bpf.o
+bloom_bench
+bloom_bench_kern
+bloom_bench_kern_mc
+bloom_bench_xdp
+
+# perf binary recordings
+*.data
+*.data.old
+perf.data
+perf.data.old
+
+# Experiment logs / reports (results live on HackMD)
+insert_*.txt
+insert_results_*.txt
+perf_cache_results*.txt
+perf_hotspot_*.txt
+trace_result.txt
+REPORT.md
+
+# Editor / IDE
+.vscode/
+*.swp
+*~
