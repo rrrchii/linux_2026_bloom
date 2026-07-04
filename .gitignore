@@ -22,13 +22,15 @@ bloom_bench_xdp
 perf.data
 perf.data.old
 
-# Experiment logs / reports (results live on HackMD)
+# Experiment logs / reports / notes (results live on HackMD)
 insert_*.txt
 insert_results_*.txt
 perf_cache_results*.txt
 perf_hotspot_*.txt
 trace_result.txt
 REPORT.md
+BLOOM_BASELINE.md
+lkm_ftrace.md
 
 # Editor / IDE
 .vscode/

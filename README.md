@@ -7,18 +7,7 @@
 | 路徑 | 內容 |
 |------|------|
 | `lkm/` | Kernel module 實驗（build profile、多核 insert/lookup、ftrace） |
-| `ebpf/` | eBPF 實驗（官方 `BPF_MAP_TYPE_BLOOM_FILTER` vs `PERCPU_ARRAY`） |
-| `BLOOM_BASELINE.md` | 基線與參數說明 |
-| `lkm_ftrace.md` | LKM ftrace 筆記 |
-
-實驗報告與原始 log（`REPORT.md`、insert / perf cache / hotspot）放在 HackMD，本 repo 不追蹤。
-
-## 實驗重點
-
-在 **6C12T（i7-10750H）** 上驗證 insert / lookup **取捨反轉**：
-
-- **insert 為主** → **per-CPU**（避開 shared bitmap 競爭）
-- **lookup 為主（≥4 thread）** → **shared**（只讀一份 Bloom 能 scale）
+| `ebpf/` | eBPF 實驗（ `BPF_MAP_TYPE_BLOOM_FILTER` vs `PERCPU_ARRAY`） |
 
 ## 快速重跑
 
@@ -48,9 +37,3 @@ sudo MODE=percpu ./run_perf_cache.sh
 sudo ./run_perf_hotspot.sh
 sudo ./run_perf_hotspot_r1.sh
 ```
-
-## 依賴
-
-- Linux kernel headers（LKM）
-- `clang`、`llvm-strip`、`libbpf`（eBPF）
-- `perf`（cache / hotspot）
